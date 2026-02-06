@@ -1863,6 +1863,27 @@
       margin: 0 2px;
     }
 
+    /* ===== RESPONSIVE SCALING ===== */
+    @media (max-height: 800px) {
+      .slide-inner { transform: scale(1.0); }
+    }
+
+    @media (max-height: 700px) {
+      .slide-inner { transform: scale(0.9); }
+    }
+
+    @media (max-height: 600px) {
+      .slide-inner { transform: scale(0.8); }
+    }
+
+    @media (max-width: 1200px) {
+      .slide-inner { transform: scale(1.0); }
+    }
+
+    @media (max-width: 1000px) {
+      .slide-inner { transform: scale(0.9); }
+    }
+
     /* ===== ANIMATIONS ===== */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(25px); }
