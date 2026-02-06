@@ -990,9 +990,16 @@
       gap: 8px;
     }
 
+    .payment-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
     .end-row {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
     }
 
@@ -1005,6 +1012,7 @@
       color: var(--gradient-green-end);
       font-size: 1rem;
       font-weight: 700;
+      margin-top: 18px;
     }
 
     .sylae-card {
@@ -1043,6 +1051,27 @@
       line-height: 1.3;
     }
 
+    .anomalie-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: white;
+      border: 1px solid rgba(217, 79, 79, 0.3);
+      color: #d94f4f;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-size: 0.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .anomalie-badge svg {
+      width: 9px;
+      height: 9px;
+      stroke: #d94f4f;
+      flex-shrink: 0;
+    }
+
     /* Workflow animations */
     .slide-workflow.active .start-badge {
       animation: fadeInUp 0.4s ease 0.1s forwards;
@@ -1064,6 +1093,11 @@
 
     .slide-workflow.active .payment-badge {
       animation: fadeInUp 0.4s ease 0.45s forwards;
+      opacity: 0;
+    }
+
+    .slide-workflow.active .anomalie-badge {
+      animation: fadeInUp 0.4s ease 0.55s forwards;
       opacity: 0;
     }
 
@@ -1864,24 +1898,40 @@
     }
 
     /* ===== RESPONSIVE SCALING ===== */
+    /* For 1920x1080 screens and similar */
+    @media (max-height: 900px) {
+      .workflow-flow { transform: scale(1.20); }
+      .value-detail-layout { transform: scale(1.10); }
+    }
+
     @media (max-height: 800px) {
       .slide-inner { transform: scale(1.0); }
+      .workflow-flow { transform: scale(1.10); }
+      .value-detail-layout { transform: scale(0.95); }
     }
 
     @media (max-height: 700px) {
       .slide-inner { transform: scale(0.9); }
+      .workflow-flow { transform: scale(1.0); }
+      .value-detail-layout { transform: scale(0.85); }
     }
 
     @media (max-height: 600px) {
       .slide-inner { transform: scale(0.8); }
+      .workflow-flow { transform: scale(0.9); }
+      .value-detail-layout { transform: scale(0.75); }
     }
 
     @media (max-width: 1200px) {
       .slide-inner { transform: scale(1.0); }
+      .workflow-flow { transform: scale(1.10); }
+      .value-detail-layout { transform: scale(0.95); }
     }
 
     @media (max-width: 1000px) {
       .slide-inner { transform: scale(0.9); }
+      .workflow-flow { transform: scale(1.0); }
+      .value-detail-layout { transform: scale(0.85); }
     }
 
     /* ===== ANIMATIONS ===== */
@@ -2443,7 +2493,17 @@
                   <p class="sylae-sub">Convergence</p>
                 </div>
                 <div class="end-arrow">→</div>
-                <div class="payment-badge">Aides à<br>l'apprentissage</div>
+                <div class="payment-wrapper">
+                  <div class="payment-badge">Aides à<br>l'apprentissage</div>
+                  <div class="anomalie-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                      <line x1="12" y1="9" x2="12" y2="13"/>
+                      <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>-10% à -30% d'aides perdues</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
